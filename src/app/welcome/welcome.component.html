@@ -1,0 +1,12 @@
+<div class="container">
+  <select (change)="getSingleCourse(courseId)"  [(ngModel)]="selected" placeholder="Golf Course">
+    <option  *ngFor="let course of course" [ngValue]="courseId">
+      {{course.name}}
+    </option>
+  </select>
+  <select  placeholder="Chose a tee" *ngIf="selected">
+    <option *ngFor="let tee of tee">
+      {{tee.tee_types}}
+    </option>
+  </select>
+</div>
