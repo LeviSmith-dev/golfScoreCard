@@ -31,7 +31,7 @@ export class CourseService {
     return Observable.throw(error.json().error || 'Server Error');
   }
 
-  getSelectedCourse(courseId: number): Observable<any[]>{
+  getSelectedCourse(courseId: number): Observable<any>{
     return this.http
       .get<any>(this.url + '/' + courseId)
       .pipe(catchError(this.handleError));

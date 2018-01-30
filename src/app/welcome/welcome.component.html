@@ -1,12 +1,24 @@
-<div class="container">
-  <select (change)="getSingleCourse(courseId)"  [(ngModel)]="selected" placeholder="Golf Course">
-    <option  *ngFor="let course of course" [ngValue]="courseId">
-      {{course.name}}
+<div class="container welcome">
+  <select class="" (change)="getSingleCourse()" [(ngModel)]="selected" placeholder="Golf Course">
+    <option *ngFor="let course of course" [value]="course.id">
+      {{course.name | uppercase}}
     </option>
   </select>
-  <select  placeholder="Chose a tee" *ngIf="selected">
-    <option *ngFor="let tee of tee">
-      {{tee.tee_types}}
+  <select *ngIf="golfCourse" [(ngModel)]="tee_type">
+    <option *ngFor="let tee_type of tee_types" [value]="tee_type.tee_type">
+      {{tee_type.tee_type | uppercase}}
     </option>
   </select>
+  <button *ngIf="tee_type" (click)="addPlayer()" class="fa fa-plus-square fa-lg" aria-hidden="true" [value]="player"> Add Player</button>
 </div>
+
+<div class="players">
+
+</div>
+
+
+
+
+
+
+
